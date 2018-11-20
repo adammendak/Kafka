@@ -1,7 +1,6 @@
 package com.adammendak.core.controller;
 
-import com.adammendak.core.service.PrinterService;
-import org.springframework.beans.factory.annotation.Qualifier;
+import com.adammendak.core.service.printer.PrinterService;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.web.bind.annotation.RequestMapping;

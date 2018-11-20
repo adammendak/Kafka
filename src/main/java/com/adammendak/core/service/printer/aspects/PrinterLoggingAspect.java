@@ -1,4 +1,4 @@
-package com.adammendak.core.service.aspects;
+package com.adammendak.core.service.printer.aspects;
 
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class PrinterLoggingAspect {
 
-    @Before("execution(* com.adammendak.core.service.PrinterService.getMessage(..))")
+    @Before("execution(* com.adammendak.core.service.printer.PrinterService.getMessage(..))")
     public void logBefore(final JoinPoint joinPoint) {
         log.info("#### ASPECT EXECUTION");
         log.info("Class " + joinPoint.getTarget());

@@ -1,6 +1,6 @@
-package com.adammendak.core.service;
+package com.adammendak.core.service.printer;
 
-import com.adammendak.core.events.PrinterMessageEvent;
+import com.adammendak.core.service.printer.events.PrinterMessageEvent;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;

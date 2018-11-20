@@ -1,4 +1,4 @@
-package com.adammendak.core.service;
+package com.adammendak.core.service.printer;
 
 public interface PrinterService {
 

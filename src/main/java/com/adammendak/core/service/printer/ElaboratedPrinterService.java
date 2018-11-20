@@ -1,4 +1,4 @@
-package com.adammendak.core.service;
+package com.adammendak.core.service.printer;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Qualifier;

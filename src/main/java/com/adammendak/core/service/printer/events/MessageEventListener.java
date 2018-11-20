@@ -1,4 +1,4 @@
-package com.adammendak.core.events;
+package com.adammendak.core.service.printer.events;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationListener;
