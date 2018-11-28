@@ -14,4 +14,11 @@ public class MessagePrinterPointcuts {
     public void loggingOperation() {
     }
 
+    @Pointcut("execution(* com.adammendak.core.controller.HomeController.*(..))")
+    public void logAnyMethodInController() {
+    }
+
+    @Pointcut("@annotation(com.adammendak.core.service.printer.aspects.AnnotationLogger)")
+    public void logAnnotationPointcuts() {
+    }
 }

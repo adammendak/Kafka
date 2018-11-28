@@ -20,4 +20,20 @@ public class PrinterLoggingAspect {
         log.info("Method " + joinPoint.getSignature() + " begins");
         log.info("#### ASPECT END");
     }
+
+    @Before("MessagePrinterPointcuts.logAnyMethodInController()")
+    public void logController(final JoinPoint joinPoint) {
+        log.info("#### CONTROLLER ASPECT EXECUTION");
+        log.info("Class " + joinPoint.getTarget());
+        log.info("Method " + joinPoint.getSignature() + " begins");
+        log.info("#### ASPECT END");
+    }
+
+    @Before("MessagePrinterPointcuts.logAnnotationPointcuts()")
+    public void logAnnotationLogger(final JoinPoint joinPoint) {
+        log.info("#### ANNOTATION METHOD");
+        log.info("Class " + joinPoint.getTarget());
+        log.info("Method " + joinPoint.getSignature() + " begins");
+        log.info("#### ASPECT END");
+    }
 }
