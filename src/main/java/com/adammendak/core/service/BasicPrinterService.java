@@ -20,8 +20,11 @@ public class BasicPrinterService implements PrinterService{
     private String MESSAGE = "Hello From Basic Service";
     private String EVENT_MESSAGE = "Event Strzelony z Basic Printer Service";
 
-    @Autowired
     private ApplicationEventPublisher publisher;
+
+    public BasicPrinterService(ApplicationEventPublisher publisher) {
+        this.publisher = publisher;
+    }
 
     @PostConstruct
     public void init() {
