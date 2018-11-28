@@ -1,4 +1,4 @@
-package com.adammendak.core.service;
+package com.adammendak.core.service.printer;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -22,6 +22,11 @@ public class ElaboratedPrinterService implements PrinterService {
     @PreDestroy
     public void destroy() {
         log.info("destroying Elaborated printer bean");
+    }
+
+    @Override
+    public String testMethod() {
+        return "testMethod";
     }
 
     @Override
