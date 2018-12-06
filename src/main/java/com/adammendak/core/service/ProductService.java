@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductService {
@@ -20,5 +21,9 @@ public class ProductService {
         List<Product> result = new ArrayList<>();
         productRepository.findAll().forEach(result::add);
         return result;
+    }
+
+    public Product findByName(String name) {
+        return productRepository.findByName(name).orElse(null);
     }
 }

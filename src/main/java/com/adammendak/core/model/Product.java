@@ -1,11 +1,13 @@
 package com.adammendak.core.model;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
 @Data
+@NoArgsConstructor
 public class Product {
 
     @Id
@@ -14,4 +16,8 @@ public class Product {
 
     @Column(name = "name")
     private String name;
+
+    public Product(String name) {
+        this.name = name;
+    }
 }

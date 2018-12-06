@@ -2,12 +2,14 @@ package com.adammendak.core.controller;
 
 import com.adammendak.core.model.Product;
 import com.adammendak.core.service.ProductService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController("/product")
+@RestController
+@RequestMapping("/product")
 public class ProductController {
 
     private final ProductService productService;
@@ -17,7 +19,13 @@ public class ProductController {
     }
 
     @GetMapping
-    public List<Product> getAll() {
-        return productService.findAll();
+    public ResponseEntity<?> getAll() {
+        return new ResponseEntity<>(productService.findAll(), HttpStatus.OK);
+    }
+
+    @GetMapping
+    @RequestMapping("/{name}")
+    public ResponseEntity<?> getByName(@PathVariable("name") String productName) {
+        return new ResponseEntity<>(productService.findByName(productName), HttpStatus.OK);
     }
 }

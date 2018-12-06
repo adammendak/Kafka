@@ -17,7 +17,6 @@ public class HomeController {
 //        this.printerService = printerService;
 //    }
 
-    //ten ma na sobie adnotacje primary wiec sie nie wywali a wstrzyknie i tak
     public HomeController(PrinterService printerService) {
         this.printerService = printerService;
     }
