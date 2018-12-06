@@ -1,6 +1,5 @@
 package com.adammendak.core.scheduledJobs;
 
-import com.adammendak.core.model.Product;
 import com.adammendak.core.service.ProductService;
 import com.adammendak.core.service.printer.aspects.AnnotationLogger;
 import lombok.extern.slf4j.Slf4j;
