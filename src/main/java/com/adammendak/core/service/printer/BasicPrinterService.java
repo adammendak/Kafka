@@ -15,7 +15,7 @@ import javax.annotation.PreDestroy;
 @Primary
 @RequestScope
 @Slf4j
-public class BasicPrinterService implements PrinterService{
+public class BasicPrinterService implements PrinterService {
 
     private String MESSAGE = "Hello From Basic Service";
     private String EVENT_MESSAGE = "Event Strzelony z Basic Printer Service";
