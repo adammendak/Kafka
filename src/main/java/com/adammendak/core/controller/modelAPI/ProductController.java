@@ -1,4 +1,4 @@
-package com.adammendak.core.controller;
+package com.adammendak.core.controller.modelAPI;
 
 import com.adammendak.core.service.ProductService;
 import org.springframework.http.HttpStatus;

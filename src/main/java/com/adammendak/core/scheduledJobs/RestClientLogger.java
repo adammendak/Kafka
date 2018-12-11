@@ -22,7 +22,7 @@ public class RestClientLogger {
         this.productService = productService;
     }
 
-    @Scheduled(fixedRate = 10000)
+//    @Scheduled(fixedRate = 10000)
     @AnnotationLogger
     public void logNumberOfProductsInDB() {
 
