@@ -20,4 +20,9 @@ public class KafkaMessageProducerService {
         kafkaTemplate.send(KafkaConstants.SPRING_TOPIC_NAME, msg);
     }
 
+    public void sendMessageWithTopic(String topic, String msg) {
+        log.info("---- Producing message :" + msg + " \n For Topic : " + topic);
+        kafkaTemplate.send(topic, msg);
+    }
+
 }

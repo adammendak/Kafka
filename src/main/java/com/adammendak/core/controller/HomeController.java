@@ -30,7 +30,7 @@ public class HomeController {
     public String helloWorld() {
         printerService.testMethod();
 //        kafkaMessageProducer.createMessage();
-        kafkaMessageProducer.createMessageWithCallback();
+//        kafkaMessageProducer.createMessageWithCallback();
         return printerService.getMessage();
     }
 }

@@ -1,5 +1,6 @@
-package com.adammendak.core.service.twitter;
+package com.adammendak.core.service.kafka.twitter;
 
+import com.adammendak.core.service.kafka.springKafka.KafkaMessageProducerService;
 import com.google.common.collect.Lists;
 import com.twitter.hbc.ClientBuilder;
 import com.twitter.hbc.core.Client;
@@ -16,11 +17,16 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.TimeUnit;
 
 @Component
 @Slf4j
 public class TwitterProducer {
+
+    private KafkaMessageProducerService kafkaMessageProducerService;
+
+    public TwitterProducer(KafkaMessageProducerService kafkaMessageProducerService) {
+        this.kafkaMessageProducerService = kafkaMessageProducerService;
+    }
 
     public void run() {
 
@@ -42,12 +48,14 @@ public class TwitterProducer {
                 client.stop();
             }
             if(msg != null) {
-                log.warn("MESSAGE TWITT : " + msg);
+//                log.warn("MESSAGE TWITT : " + msg);
+                kafkaMessageProducerService.sendMessageWithTopic("twitter_tweets", msg);
             }
         }
         client.stop();
         log.warn("END OF TWEET FEED");
     }
+
 
     private Client createTwitterClient(BlockingQueue<String> msgQueue) {
 

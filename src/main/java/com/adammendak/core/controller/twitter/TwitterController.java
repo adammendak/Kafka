@@ -1,6 +1,6 @@
 package com.adammendak.core.controller.twitter;
 
-import com.adammendak.core.service.twitter.TwitterProducer;
+import com.adammendak.core.service.kafka.twitter.TwitterProducer;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
