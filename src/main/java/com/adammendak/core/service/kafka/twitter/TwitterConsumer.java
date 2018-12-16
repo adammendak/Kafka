@@ -24,12 +24,11 @@ public class TwitterConsumer {
     @KafkaListener(topics = "twitter_tweets", groupId = "tweets")
     public void listen(String message) {
 
-//        log.info(message);x
         try {
             JsonNode jsonNode = objectMapper.readTree(message);
             tweetService.saveTweet(new Tweet(jsonNode.get("created_at").toString(), jsonNode.get("text").toString()));
         } catch (IOException e) {
-            e.printStackTrace();
+           log.error("Error in saving tweet: " + e.getMessage());
         }
     }
 }
