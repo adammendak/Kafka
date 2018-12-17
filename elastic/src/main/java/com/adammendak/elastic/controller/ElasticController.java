@@ -1,6 +1,6 @@
-package com.adammendak.elastic.elastic.controller;
+package com.adammendak.elastic.controller;
 
-import com.adammendak.elastic.elastic.service.ElasticSearchConsumer;
+import com.adammendak.elastic.service.ElasticSearchService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,15 +12,15 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 public class ElasticController {
 
-    private ElasticSearchConsumer elasticSearchConsumer;
+    private ElasticSearchService elasticSearchService;
 
-    public ElasticController(ElasticSearchConsumer elasticSearchConsumer) {
-        this.elasticSearchConsumer = elasticSearchConsumer;
+    public ElasticController(ElasticSearchService elasticSearchService) {
+        this.elasticSearchService = elasticSearchService;
     }
 
     @GetMapping
     public ResponseEntity<?> testElasticInsert() {
-        elasticSearchConsumer.insertTestData();
+        elasticSearchService.insertTestData();
         return ResponseEntity.ok("success - check log");
     }
 }

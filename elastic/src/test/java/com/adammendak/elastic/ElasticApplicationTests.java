@@ -1,4 +1,4 @@
-package com.adammendak.elastic.elastic;
+package com.adammendak.elastic;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,4 +1,4 @@
-package com.adammendak.elastic.elastic.service;
+package com.adammendak.elastic.service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpHost;
@@ -9,17 +9,18 @@ import org.elasticsearch.client.RestClient;
 import org.elasticsearch.client.RestClientBuilder;
 import org.elasticsearch.client.RestHighLevelClient;
 import org.elasticsearch.common.xcontent.XContentType;
+import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
 @Component
 @Slf4j
-public class ElasticSearchConsumer {
+public class ElasticSearchService {
 
     private RestHighLevelClient restHighLevelClient;
 
-    public ElasticSearchConsumer(RestHighLevelClient restHighLevelClient) {
+    public ElasticSearchService(RestHighLevelClient restHighLevelClient) {
         this.restHighLevelClient = createElasticClient();
     }
 
@@ -29,7 +30,6 @@ public class ElasticSearchConsumer {
 
         IndexRequest indexRequest = new IndexRequest("twitter", "tweet")
                 .source(testJson, XContentType.JSON);
-
         try {
             IndexResponse indexResponse = restHighLevelClient.index(indexRequest, RequestOptions.DEFAULT);
             String id = indexResponse.getId();
