@@ -1,5 +1,6 @@
 package com.adammendak.elastic.service;
 
+import com.adammendak.elastic.model.Tweet;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpHost;
 import org.elasticsearch.action.index.IndexRequest;
@@ -22,6 +23,17 @@ public class ElasticSearchService {
 
     public ElasticSearchService(RestHighLevelClient restHighLevelClient) {
         this.restHighLevelClient = createElasticClient();
+    }
+
+    public void insertTweet(String tweet) {
+        IndexRequest indexRequest = new IndexRequest("twitter", "tweet")
+                .source(tweet, XContentType.JSON);
+        try {
+            IndexResponse indexResponse = restHighLevelClient.index(indexRequest, RequestOptions.DEFAULT);
+            log.info(indexResponse.toString());
+        } catch (IOException e) {
+            log.error("Error with inserting Tweet : " + e.getMessage());
+        }
     }
 
     public void insertTestData() {
