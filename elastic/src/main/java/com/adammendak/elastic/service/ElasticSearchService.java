@@ -1,6 +1,5 @@
 package com.adammendak.elastic.service;
 
-import com.adammendak.elastic.model.Tweet;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpHost;
 import org.elasticsearch.action.index.IndexRequest;
@@ -10,7 +9,6 @@ import org.elasticsearch.client.RestClient;
 import org.elasticsearch.client.RestClientBuilder;
 import org.elasticsearch.client.RestHighLevelClient;
 import org.elasticsearch.common.xcontent.XContentType;
-import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -21,7 +19,7 @@ public class ElasticSearchService {
 
     private RestHighLevelClient restHighLevelClient;
 
-    public ElasticSearchService(RestHighLevelClient restHighLevelClient) {
+    public ElasticSearchService() {
         this.restHighLevelClient = createElasticClient();
     }
 
