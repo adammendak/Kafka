@@ -1,6 +1,6 @@
 package com.adammendak.microservices.limitsservice.controller;
 
-import com.adammendak.microservices.limitsservice.configuration.Configuration;
+import com.adammendak.microservices.limitsservice.configuration.ApplicationProperties;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/limits")
 public class HomeController {
 
-    private Configuration configuration;
+    private ApplicationProperties applicationProperties;
 
-    public HomeController(Configuration configuration) {
-        this.configuration = configuration;
+    public HomeController(ApplicationProperties applicationProperties) {
+        this.applicationProperties = applicationProperties;
     }
 
     @GetMapping
     public String homeController() {
-        return "hello from limits microservice min" + configuration.getMinimum() + " max " +configuration.getMaximum();
+        return "hello from limits microservice min" + applicationProperties.getMinimum() + " max " + applicationProperties.getMaximum();
     }
 }
