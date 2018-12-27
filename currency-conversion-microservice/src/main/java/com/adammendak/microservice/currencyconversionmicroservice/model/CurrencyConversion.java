@@ -23,8 +23,8 @@ public class CurrencyConversion {
     @Column(name = "to_currency")
     private String to;
 
-    @Column(name = "currency_multiple")
-    private BigDecimal currencyMultiple;
+    @Column(name = "conversion_multiple")
+    private BigDecimal conversionMultiple;
 
     @Column(name = "quantity")
     private BigDecimal quantity;

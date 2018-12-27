@@ -21,7 +21,7 @@ public class CurrencyExchangeController {
 
 
     @GetMapping("/from/{from}/to/{to}")
-    public ResponseEntity<?> retrieveExchangeValue(@PathVariable(name = "from") String from, @PathVariable(name = "to") String to) {
+    public ResponseEntity<ExchangeValue> retrieveExchangeValue(@PathVariable(name = "from") String from, @PathVariable(name = "to") String to) {
         ExchangeValue exchangeValue = new ExchangeValue(1L, "from","to", BigDecimal.ONE, Integer.parseInt(Objects.requireNonNull(env.getProperty("local.server.port"))));
         exchangeValue.setPort(Integer.parseInt(Objects.requireNonNull(env.getProperty("local.server.port"))));
         return ResponseEntity.ok(exchangeValue);
