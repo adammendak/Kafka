@@ -62,7 +62,7 @@ public class CurrencyConversionController {
         ResponseEntity<CurrencyConversion> responseEntity = currencyExchangeProxy.retrieveExchangeValue(from,to);
         CurrencyConversion response = responseEntity.getBody();
 
-        log.info("response : " + responseEntity.toString());
+        log.info("FROM CURRENCY CONVERTER MICRO: response : {} ", responseEntity.toString());
         return new CurrencyConversion(response.getId(), from, to, response.getConversionMultiple(), quantity,
                 quantity.multiply(response.getConversionMultiple()), response.getPort());
     }
